@@ -75,13 +75,13 @@ ADDITIONS?=	os-dyndns${SUFFIX}
 DEVICE?=	a10
 SPEED?=		115200
 UEFI?=		yes
-GITBASE?=	https://github.com/opnsense
-MIRRORS?=	https://opnsense.c0urier.net \
-		http://mirrors.nycbug.org/pub/opnsense \
-		http://mirror.wdc1.us.leaseweb.net/opnsense \
-		http://mirror.sfo12.us.leaseweb.net/opnsense \
-		http://mirror.fra10.de.leaseweb.net/opnsense \
-		http://mirror.ams1.nl.leaseweb.net/opnsense
+GITBASE?=	https://github.com/opnids
+# MIRRORS?=	https://opnsense.c0urier.net \
+# 		http://mirrors.nycbug.org/pub/opnsense \
+# 		http://mirror.wdc1.us.leaseweb.net/opnsense \
+# 		http://mirror.sfo12.us.leaseweb.net/opnsense \
+# 		http://mirror.fra10.de.leaseweb.net/opnsense \
+# 		http://mirror.ams1.nl.leaseweb.net/opnsense
 SERVER?=	user@does.not.exist
 _VERSION!=	date '+%Y%m%d%H%M'
 VERSION?=	${_VERSION}
@@ -141,7 +141,7 @@ ${STEP}: lint-steps
 	    -S ${SRCDIR} -P ${PORTSDIR} -p ${PLUGINSDIR} -T ${TOOLSDIR} \
 	    -C ${COREDIR} -R ${PORTSREFDIR} -t ${TYPE} -k "${PRIVKEY}" \
 	    -K "${PUBKEY}" -l "${SIGNCHK}" -L "${SIGNCMD}" -d ${DEVICE} \
-	    -m ${MIRRORS:Ox:[1]} -o "${STAGEDIRPREFIX}" -c ${SPEED} \
+	    -o "${STAGEDIRPREFIX}" -c ${SPEED} \
 	    -b ${SRCBRANCH} -B ${PORTSBRANCH} -e ${PLUGINSBRANCH} \
 	    -g ${TOOLSBRANCH} -E ${COREBRANCH} -G ${PORTSREFBRANCH} \
 	    -H "${COREENV}" -Q "${QUICK}" -u "${UEFI:tl}" -U "${SUFFIX}" \
